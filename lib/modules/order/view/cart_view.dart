@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:medical_devices_app/core/router/router.dart';
 import 'package:medical_devices_app/core/services/remote_services/base_model.dart';
+import 'package:medical_devices_app/core/services/remote_services/firebase_init.dart';
 import 'package:medical_devices_app/core/utils/color_manager.dart';
 import 'package:medical_devices_app/core/utils/extentions.dart';
 import 'package:medical_devices_app/core/utils/validation.dart';
@@ -184,15 +186,19 @@ class _CartViewState extends State<CartView> {
                                           onPressed: () {
                                             if (formKey.currentState!
                                                 .validate()) {
-                                              //todo: convert the devices into cart to map with status 0 and store it inside order
-                                              orderController.cart.data!
-                                                  .map((e) {});
+                                              context
+                                                  .read<OrderController>()
+                                                  .completeOrder(
+                                                      address: addressController
+                                                          .text,
+                                                      mobile: mobileController
+                                                          .text);
                                             }
                                           },
                                           child: const Text(
                                             'تاكيد',
                                           )),
-                                      SizedBox(
+                                      const SizedBox(
                                         height: 20,
                                       )
                                     ],

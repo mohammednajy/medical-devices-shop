@@ -15,8 +15,7 @@ class CartModel {
         userId: snapshot['userID']);
   }
 
-
-
-
-
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{'userID': userId, 'product': device.toJson()};
+  }
 }

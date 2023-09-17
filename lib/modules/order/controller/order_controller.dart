@@ -1,14 +1,18 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:medical_devices_app/core/router/router.dart';
 import 'package:medical_devices_app/core/services/remote_services/base_model.dart';
 import 'package:medical_devices_app/core/services/remote_services/firebase_init.dart';
 import 'package:medical_devices_app/core/widgets/show_snackbar.dart';
 import 'package:medical_devices_app/modules/order/model/cart_model.dart';
+import 'package:medical_devices_app/modules/order/model/order_model.dart';
 
 import '../../../core/services/local_services/shared_perf.dart';
 
 class OrderController extends ChangeNotifier {
   FirebaseResponse<List<CartModel>> cart = FirebaseResponse.init();
+
+  FirebaseResponse<List<OrderModel>> activeOrder = FirebaseResponse.init();
+  FirebaseResponse<List<OrderModel>> completedOrder = FirebaseResponse.init();
 
   getCartDevices() async {
     try {
@@ -39,5 +43,79 @@ class OrderController extends ChangeNotifier {
       getCartDevices();
       showSnackBarCustom(text: 'تم الحذف بنجاح');
     }).onError((error, stackTrace) => showSnackBarCustom(text: 'لم يتم الحذف'));
+  }
+
+  completeOrder({required String address, required String mobile}) async {
+    try {
+      cart.data!.map((e) {
+        getIt<FirebaseService>().firestore.collection('order').add({
+          "status": "0",
+          "info": {"phone": mobile, "address": address},
+          ...e.toJson(),
+        });
+      }).toList();
+      clearCart();
+      getCartDevices();
+      showSnackBarCustom(
+        text: 'تم الاضافة بنجاح لقائمة الطلبات',
+        backgroundColor: Colors.green,
+      );
+      NavigationManager.mayPop();
+    } on Exception catch (e) {
+      print(e);
+    }
+  }
+
+  clearCart() async {
+    cart.data!
+        .map((e) async => await getIt<FirebaseService>()
+            .firestore
+            .collection('cart')
+            .doc(e.cartId)
+            .delete())
+        .toList();
+    notifyListeners();
+  }
+
+  getActiveOrder() async {
+    activeOrder = FirebaseResponse.loading('loading');
+    notifyListeners();
+    try {
+      List<OrderModel> value = await getIt<FirebaseService>()
+          .firestore
+          .collection('order')
+          .where('userID', isEqualTo: SharedPrefController().getUser().userId)
+          .where('status', isEqualTo: "0")
+          .get()
+          .then((value) {
+        return value.docs.map((e) => OrderModel.fromSnapshot(e)).toList();
+      });
+      activeOrder = FirebaseResponse.completed(value);
+      notifyListeners();
+    } on Exception catch (e) {
+      activeOrder = FirebaseResponse.error(e.toString());
+      notifyListeners();
+    }
+  }
+
+  getCompletedOrder() async {
+    completedOrder = FirebaseResponse.loading('loading');
+    notifyListeners();
+    try {
+      List<OrderModel> value = await getIt<FirebaseService>()
+          .firestore
+          .collection('order')
+          .where('userID', isEqualTo: SharedPrefController().getUser().userId)
+          .where('status', isEqualTo: "1")
+          .get()
+          .then((value) {
+        return value.docs.map((e) => OrderModel.fromSnapshot(e)).toList();
+      });
+      completedOrder = FirebaseResponse.completed(value);
+      notifyListeners();
+    } on Exception catch (e) {
+      completedOrder = FirebaseResponse.error(e.toString());
+      notifyListeners();
+    }
   }
 }
