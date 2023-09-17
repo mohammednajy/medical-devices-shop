@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:medical_devices_app/core/utils/color_manager.dart';
 import 'package:medical_devices_app/modules/bnb/controller/bnb_controller.dart';
-import 'package:medical_devices_app/modules/home/controller/home_controller.dart';
+import 'package:medical_devices_app/modules/bnb/model/bnb_model.dart';
 import 'package:medical_devices_app/modules/order/view/order_view.dart';
 import 'package:provider/provider.dart';
 
@@ -24,31 +24,23 @@ class MainAppView extends StatelessWidget {
           },
           currentIndex: bnbProvider.selectedTabIndex,
           selectedItemColor: ColorManager.blue,
-          unselectedLabelStyle: TextStyle(color: Colors.black),
-          selectedLabelStyle: TextStyle(color: Colors.black),
-          items: [
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.home,
-              ),
-              label: 'الرئيسية',
-            ),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.category), label: 'الفئات'),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.star_rate), label: 'طلباتي'),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.person_2), label: 'الملف الشخصي'),
-          ]),
+          unselectedLabelStyle: const TextStyle(color: Colors.black),
+          selectedLabelStyle: const TextStyle(color: Colors.black),
+          items: bnbContent
+              .map(
+                (e) => BottomNavigationBarItem(
+                  icon: Icon(
+                    e.icon,
+                  ),
+                  label: e.text,
+                ),
+              )
+              .toList()),
     );
   }
 }
 
 List<Widget> taps = [
-  // ChangeNotifierProvider<HomeController>(
-  //   create: (context) => HomeController(),
-  //   child: const HomeView(),
-  // ),
   const HomeView(),
   const CategoryView(),
   const OrdersScreen(),
