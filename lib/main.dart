@@ -10,6 +10,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:medical_devices_app/modules/category/controller/category_controller.dart';
 import 'package:medical_devices_app/modules/home/controller/home_controller.dart';
 import 'package:medical_devices_app/modules/order/controller/order_controller.dart';
+import 'package:medical_devices_app/modules/profile/controller/profile_controller.dart';
 import 'package:provider/provider.dart';
 import 'core/services/remote_services/firebase_init.dart';
 
@@ -24,6 +25,7 @@ void main() async {
     ChangeNotifierProvider(create: (context) => CategoryController()),
     ChangeNotifierProvider(create: (context) => HomeController()),
     ChangeNotifierProvider(create: (context) => OrderController()),
+    ChangeNotifierProvider(create: (context) => ProfileController()),
   ], child: const MyApp()));
 }
 

@@ -86,11 +86,6 @@ class AuthController extends ChangeNotifier {
     }
   }
 
-  logOut() async {
-    await getIt<FirebaseService>().auth.signOut();
-    NavigationManager.goToAndRemove(RouteName.login);
-  }
-
   saveUser({required String email, required String password}) {
     getIt<FirebaseService>()
         .firestore
