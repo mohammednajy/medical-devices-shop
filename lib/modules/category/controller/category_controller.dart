@@ -48,10 +48,10 @@ class CategoryController extends ChangeNotifier {
       }).toList());
       notifyListeners();
     }).onError((error, stackTrace) {
-      categories = FirebaseResponse.error(error.toString());
+      devices = FirebaseResponse.error(error.toString());
       notifyListeners();
     }).catchError((e) {
-      categories = FirebaseResponse.error(e.toString());
+      devices = FirebaseResponse.error(e.toString());
       notifyListeners();
     });
   }

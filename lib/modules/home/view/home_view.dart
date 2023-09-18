@@ -4,6 +4,7 @@ import 'package:medical_devices_app/modules/home/controller/home_controller.dart
 import 'package:medical_devices_app/modules/home/view/category_section.dart';
 import 'package:medical_devices_app/modules/home/view/last_added_section.dart';
 import 'package:medical_devices_app/modules/home/view/most_ordered_section.dart';
+import 'package:medical_devices_app/modules/home/view/search_delegate_devices.dart';
 import 'package:medical_devices_app/modules/order/controller/order_controller.dart';
 import 'package:provider/provider.dart';
 import '../../../core/widgets/appbar_custom.dart';
@@ -30,6 +31,7 @@ class _HomeViewState extends State<HomeView> {
 
   @override
   Widget build(BuildContext context) {
+    context.read<HomeController>().getDevices();
     return Scaffold(
         appBar: const AppBarCustom(
           title: 'الرئيسية',
@@ -50,6 +52,11 @@ class _HomeViewState extends State<HomeView> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: TextFormField(
+                  onTap: () {
+                    showSearch(
+                        context: context, delegate: DevicesSearchDelegate());
+                  },
+                  readOnly: true,
                   decoration: InputDecoration(
                       filled: true,
                       fillColor: Colors.grey.shade200,
