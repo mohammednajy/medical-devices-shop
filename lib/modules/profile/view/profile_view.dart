@@ -55,7 +55,9 @@ class ProfileView extends StatelessWidget {
                   ),
                   ProfileCustomListTile(
                     text: 'سياسية الاستخدام',
-                    onTap: () {},
+                    onTap: () {
+                      NavigationManager.pushNamed(RouteName.usesPoliceView);
+                    },
                   ),
                   const Divider(
                     thickness: 1,
@@ -73,7 +75,9 @@ class ProfileView extends StatelessWidget {
                   ),
                   ProfileCustomListTile(
                     text: 'الأسئلة الشائعة',
-                    onTap: () {},
+                    onTap: () {
+                      NavigationManager.pushNamed(RouteName.faqView);
+                    },
                   ),
                 ],
               ),

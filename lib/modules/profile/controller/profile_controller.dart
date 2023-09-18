@@ -12,6 +12,8 @@ class ProfileController extends ChangeNotifier {
   FirebaseResponse<List<AboutAppModel>> aboutApp = FirebaseResponse.init();
   FirebaseResponse<List<AboutAppModel>> privacyPolices =
       FirebaseResponse.init();
+  FirebaseResponse<List<AboutAppModel>> usesPolices = FirebaseResponse.init();
+  FirebaseResponse<List<AboutAppModel>> faq = FirebaseResponse.init();
 
   logOut() async {
     await getIt<FirebaseService>().auth.signOut();
@@ -93,6 +95,45 @@ class ProfileController extends ChangeNotifier {
     }).catchError((e) {
       print(e);
       privacyPolices = FirebaseResponse.error('error');
+      notifyListeners();
+    });
+  }
+
+  usesPolice() async {
+    usesPolices = FirebaseResponse.loading('loading');
+    notifyListeners();
+    await getIt<FirebaseService>()
+        .firestore
+        .collection('aboutApp')
+        .doc('UXemIynMWGiv8hy3Papd')
+        .get()
+        .then((value) {
+      List response = value.data()!['usesPolicy'];
+      usesPolices = FirebaseResponse.completed(
+          response.map((e) => AboutAppModel.fromJson(e)).toList());
+      notifyListeners();
+    }).catchError((e) {
+      print(e);
+      usesPolices = FirebaseResponse.error('error');
+      notifyListeners();
+    });
+  }
+
+  faqs() async {
+    faq = FirebaseResponse.loading('loading');
+    notifyListeners();
+    await getIt<FirebaseService>()
+        .firestore
+        .collection('aboutApp')
+        .doc('PXqhzZvSr6YguC9UiiE8')
+        .get()
+        .then((value) {
+      List response = value.data()!['faq'];
+      faq = FirebaseResponse.completed(
+          response.map((e) => AboutAppModel.fromJson(e)).toList());
+      notifyListeners();
+    }).catchError((e) {
+      faq = FirebaseResponse.error('error');
       notifyListeners();
     });
   }

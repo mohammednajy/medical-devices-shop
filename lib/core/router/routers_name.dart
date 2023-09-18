@@ -12,5 +12,6 @@ class RouteName {
   static const String contactUsView = 'contactUsView';
   static const String aboutAppView = 'aboutAppView';
   static const String privacyPoliceView = 'privacyPoliceView';
-
+  static const String usesPoliceView = 'usesPoliceView';
+  static const String faqView = 'faqView';
 }
