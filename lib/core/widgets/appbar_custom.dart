@@ -38,25 +38,30 @@ class AppBarCustom extends StatelessWidget implements PreferredSizeWidget {
                 builder: (context, value, child) => Stack(
                   alignment: Alignment.topRight,
                   children: [
-                    IconButton(
-                        onPressed: () {
-                          NavigationManager.pushNamed(RouteName.cartView);
-                        },
-                        icon: const Icon(
-                          Icons.shopping_cart,
-                          color: ColorManager.blue,
-                          size: 30,
-                        )),
+                    Center(
+                      child: IconButton(
+                          onPressed: () {
+                            NavigationManager.pushNamed(RouteName.cartView);
+                          },
+                          icon: const Icon(
+                            Icons.shopping_cart,
+                            color: ColorManager.blue,
+                            size: 30,
+                          )),
+                    ),
                     Visibility(
                       visible: value.cart.status == Status.COMPLETED
                           ? value.cart.data!.isEmpty
                               ? false
                               : true
                           : false,
-                      child: const Icon(
-                        Icons.circle,
-                        color: Colors.amber,
-                        size: 17,
+                      child: const Padding(
+                        padding: EdgeInsets.only(top: 12),
+                        child: Icon(
+                          Icons.circle,
+                          color: Colors.amber,
+                          size: 17,
+                        ),
                       ),
                     )
                   ],
