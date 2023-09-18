@@ -71,7 +71,7 @@ class _OnBoardingScreenState extends State<OnBoardingView> {
                   style: context.h1,
                 ),
                 SizedBox(
-                  height: height / 12,
+                  height: height / 10,
                   child: Text(
                     onboardingContent[onboardingProvider.selectedIndex]
                         .description,
@@ -97,7 +97,6 @@ class _OnBoardingScreenState extends State<OnBoardingView> {
                       ? 'انشاء حساب'
                       : 'التالي'),
                 ),
-                
               ],
             ),
           )

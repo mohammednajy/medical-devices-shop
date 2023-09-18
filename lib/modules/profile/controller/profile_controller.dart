@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:medical_devices_app/core/services/remote_services/base_model.dart';
 import 'package:medical_devices_app/core/services/remote_services/firebase_init.dart';
+import 'package:medical_devices_app/modules/profile/model/about_app_model.dart';
 
 import '../../../core/router/router.dart';
 import '../../../core/router/routers_name.dart';
@@ -7,6 +9,10 @@ import '../../../core/services/local_services/shared_perf.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ProfileController extends ChangeNotifier {
+  FirebaseResponse<List<AboutAppModel>> aboutApp = FirebaseResponse.init();
+  FirebaseResponse<List<AboutAppModel>> privacyPolices =
+      FirebaseResponse.init();
+
   logOut() async {
     await getIt<FirebaseService>().auth.signOut();
     SharedPrefController().isLoggedIn(value: false);
@@ -50,5 +56,44 @@ class ProfileController extends ChangeNotifier {
     } catch (e) {
       debugPrint(e.toString());
     }
+  }
+
+  aboutTheApp() async {
+    aboutApp = FirebaseResponse.loading('loading');
+    notifyListeners();
+    await getIt<FirebaseService>()
+        .firestore
+        .collection('aboutApp')
+        .doc('HwGwArfS5nmrWXdgx19n')
+        .get()
+        .then((value) {
+      List response = value.data()!['about'];
+      aboutApp = FirebaseResponse.completed(
+          response.map((e) => AboutAppModel.fromJson(e)).toList());
+      notifyListeners();
+    }).catchError((e) {
+      aboutApp = FirebaseResponse.error('error');
+      notifyListeners();
+    });
+  }
+
+  privacyPolice() async {
+    privacyPolices = FirebaseResponse.loading('loading');
+    notifyListeners();
+    await getIt<FirebaseService>()
+        .firestore
+        .collection('aboutApp')
+        .doc('SHbDekFsJpMYbYrfhDcm')
+        .get()
+        .then((value) {
+      List response = value.data()!['privacy '];
+      privacyPolices = FirebaseResponse.completed(
+          response.map((e) => AboutAppModel.fromJson(e)).toList());
+      notifyListeners();
+    }).catchError((e) {
+      print(e);
+      privacyPolices = FirebaseResponse.error('error');
+      notifyListeners();
+    });
   }
 }

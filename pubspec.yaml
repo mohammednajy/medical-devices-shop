@@ -45,9 +45,31 @@ dependencies:
   url_launcher: ^6.1.14
 
 dev_dependencies:
+  flutter_launcher_icons: ^0.13.1
   flutter_lints: ^2.0.0
+  flutter_native_splash: ^2.3.2
   flutter_test:
     sdk: flutter
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: 'assets/icons/logoIcon.png'
+  remove_alpha_ios: true
+  background_color: '#FFFFFF'
+
+flutter_native_splash:
+  android: true
+  ios: true
+  color: '#FFFFFF'
+  image: assets/images/logo3.png
+  
+
+  fullscreen: true
+
+  android_12:
+    image: assets/images/logo3.png
+    color: "#FFFFFF"
+    icon_background_color: "#FFFFFF"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -84,5 +106,13 @@ flutter:
           weight: 600
         - asset: assets/fonts/Poppins-Bold.ttf
           weight: 700
+
+    - family: AvenirArabic
+      fonts:
+        - asset: assets/fonts/avenir-arabic-black.otf
+          weight: 700
+        - asset: assets/fonts/avenir-arabic-medium.otf
+          weight: 400
+  
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

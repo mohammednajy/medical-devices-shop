@@ -10,4 +10,7 @@ class RouteName {
   static const String devicesDetailsView = 'devicesDetailsView';
   static const String cartView = 'cartView';
   static const String contactUsView = 'contactUsView';
+  static const String aboutAppView = 'aboutAppView';
+  static const String privacyPoliceView = 'privacyPoliceView';
+
 }

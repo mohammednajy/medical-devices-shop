@@ -22,6 +22,7 @@ class _HomeViewState extends State<HomeView> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      context.read<HomeController>().getDevices();
       context.read<CategoryController>().getCategory();
       context.read<HomeController>().getLastAddedDevices();
       context.read<HomeController>().getMostOrderedDevices();
@@ -31,7 +32,6 @@ class _HomeViewState extends State<HomeView> {
 
   @override
   Widget build(BuildContext context) {
-    context.read<HomeController>().getDevices();
     return Scaffold(
         appBar: const AppBarCustom(
           title: 'الرئيسية',

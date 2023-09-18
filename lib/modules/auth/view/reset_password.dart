@@ -38,10 +38,6 @@ class _LoginViewState extends State<ResetPasswordView> {
           color: ColorManager.blue,
         ),
         centerTitle: false,
-        title: const Text(
-          'رجوع',
-          style: TextStyle(color: ColorManager.blue),
-        ),
       ),
       body: ListView(
         padding: const EdgeInsets.symmetric(horizontal: 20),

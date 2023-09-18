@@ -29,7 +29,7 @@
     <!--#docregion android-queries-->
     </queries>
     <application
-        android:label="medical_devices_app"
+        android:label="ميدستور"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

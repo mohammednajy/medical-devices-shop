@@ -20,10 +20,6 @@ class CheckingEmailView extends StatelessWidget {
           color: ColorManager.blue,
         ),
         centerTitle: false,
-        title: const Text(
-          'رجوع',
-          style: TextStyle(color: ColorManager.blue),
-        ),
       ),
       body: ListView(
         padding: const EdgeInsets.symmetric(horizontal: 20),

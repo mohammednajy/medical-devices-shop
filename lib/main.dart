@@ -14,20 +14,29 @@ import 'package:medical_devices_app/modules/order/controller/order_controller.da
 import 'package:medical_devices_app/modules/profile/controller/profile_controller.dart';
 import 'package:provider/provider.dart';
 import 'core/services/remote_services/firebase_init.dart';
+// ignore: depend_on_referenced_packages
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   await SharedPrefController().init();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
   setUp();
-  runApp(MultiProvider(providers: [
-    ChangeNotifierProvider(create: (context) => CategoryController()),
-    ChangeNotifierProvider(create: (context) => HomeController()),
-    ChangeNotifierProvider(create: (context) => OrderController()),
-    ChangeNotifierProvider(create: (context) => ProfileController()),
-  ], child: const MyApp(),),);
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => CategoryController()),
+        ChangeNotifierProvider(create: (context) => HomeController()),
+        ChangeNotifierProvider(create: (context) => OrderController()),
+        ChangeNotifierProvider(create: (context) => ProfileController()),
+      ],
+      child: const MyApp(),
+    ),
+  );
+  FlutterNativeSplash.remove();
 }
 
 class MyApp extends StatelessWidget {

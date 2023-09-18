@@ -45,7 +45,9 @@ class ProfileView extends StatelessWidget {
                   ),
                   ProfileCustomListTile(
                     text: 'عن التطبيق',
-                    onTap: () {},
+                    onTap: () {
+                      NavigationManager.pushNamed(RouteName.aboutAppView);
+                    },
                   ),
                   const Divider(
                     thickness: 1,
@@ -61,7 +63,9 @@ class ProfileView extends StatelessWidget {
                   ),
                   ProfileCustomListTile(
                     text: 'سياسية الخصوصية',
-                    onTap: () {},
+                    onTap: () {
+                      NavigationManager.pushNamed(RouteName.privacyPoliceView);
+                    },
                   ),
                   const Divider(
                     thickness: 1,

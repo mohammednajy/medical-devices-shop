@@ -4,7 +4,7 @@ import 'package:medical_devices_app/core/utils/color_manager.dart';
 class ThemeManager {
   static final lightTheme = ThemeData(
     brightness: Brightness.light,
-    fontFamily: 'Poppins',
+    fontFamily: 'AvenirArabic',
     scaffoldBackgroundColor: const Color(0xFFF5F5F5),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(

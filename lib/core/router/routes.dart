@@ -15,7 +15,9 @@ import 'package:medical_devices_app/modules/home/model/device_model.dart';
 import 'package:medical_devices_app/modules/onboarding/controller/onboarding_controller.dart';
 import 'package:medical_devices_app/modules/onboarding/view/onboarding_view.dart';
 import 'package:medical_devices_app/modules/order/view/cart_view.dart';
+import 'package:medical_devices_app/modules/profile/view/about_app_view.dart';
 import 'package:medical_devices_app/modules/profile/view/contactUs_view.dart';
+import 'package:medical_devices_app/modules/profile/view/privicy_polices_view.dart';
 import 'package:provider/provider.dart';
 
 class RouteGenerator {
@@ -83,6 +85,16 @@ class RouteGenerator {
         return MaterialPageRoute(
             builder: (_) => const ContactUsView(),
             settings: const RouteSettings(name: RouteName.contactUsView));
+
+      case RouteName.aboutAppView:
+        return MaterialPageRoute(
+            builder: (_) => const AboutAppView(),
+            settings: const RouteSettings(name: RouteName.aboutAppView));
+
+      case RouteName.privacyPoliceView:
+        return MaterialPageRoute(
+            builder: (_) => const PrivacyPolicesView(),
+            settings: const RouteSettings(name: RouteName.privacyPoliceView));
       default:
         return unDefineRoute();
     }
