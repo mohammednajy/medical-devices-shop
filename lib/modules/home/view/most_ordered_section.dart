@@ -34,7 +34,7 @@ class MostOrderedSection extends StatelessWidget {
                   children: [
                     Container(
                       clipBehavior: Clip.antiAlias,
-                      height: 140,
+                      height: 130,
                       width: 150,
                       decoration: BoxDecoration(
                           color: Colors.grey,
@@ -51,6 +51,7 @@ class MostOrderedSection extends StatelessWidget {
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
                       ),
+                      overflow: TextOverflow.ellipsis,
                     ),
                     Text(
                       'USD ${homeProvider.mostOrderedDevices.data![index].price}',

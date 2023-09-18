@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:medical_devices_app/core/router/router.dart';
+import 'package:medical_devices_app/core/router/routers_name.dart';
 import 'package:medical_devices_app/core/widgets/appbar_custom.dart';
 import 'package:medical_devices_app/core/widgets/dialog_custome.dart';
 import 'package:medical_devices_app/modules/profile/controller/profile_controller.dart';
@@ -33,7 +35,9 @@ class ProfileView extends StatelessWidget {
                 children: [
                   ProfileCustomListTile(
                     text: 'تواصل معنا',
-                    onTap: () {},
+                    onTap: () {
+                      NavigationManager.pushNamed(RouteName.contactUsView);
+                    },
                   ),
                   const Divider(
                     thickness: 1,

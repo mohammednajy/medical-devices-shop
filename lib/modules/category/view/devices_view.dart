@@ -28,7 +28,6 @@ class _DeviceViewState extends State<DeviceView> {
   void initState() {
     super.initState();
     context.read<CategoryController>().getDevices(widget.category.categoryId);
-    
   }
 
   @override
@@ -64,7 +63,7 @@ class _DeviceViewState extends State<DeviceView> {
                       children: [
                         Container(
                           clipBehavior: Clip.antiAlias,
-                          height: 140,
+                          height: 130,
                           width: 150,
                           decoration: BoxDecoration(
                               color: Colors.grey,
@@ -81,6 +80,7 @@ class _DeviceViewState extends State<DeviceView> {
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
                           ),
+                          overflow: TextOverflow.ellipsis,
                         ),
                         Text(
                           'USD ${categoryProvider.devices.data![index].price}',

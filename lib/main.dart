@@ -6,6 +6,7 @@ import 'package:medical_devices_app/core/router/routes.dart';
 import 'package:medical_devices_app/core/services/local_services/shared_perf.dart';
 import 'package:medical_devices_app/core/utils/theme_manager.dart';
 import 'package:medical_devices_app/firebase_options.dart';
+// ignore: depend_on_referenced_packages
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:medical_devices_app/modules/category/controller/category_controller.dart';
 import 'package:medical_devices_app/modules/home/controller/home_controller.dart';
@@ -26,7 +27,7 @@ void main() async {
     ChangeNotifierProvider(create: (context) => HomeController()),
     ChangeNotifierProvider(create: (context) => OrderController()),
     ChangeNotifierProvider(create: (context) => ProfileController()),
-  ], child: const MyApp()));
+  ], child: const MyApp(),),);
 }
 
 class MyApp extends StatelessWidget {

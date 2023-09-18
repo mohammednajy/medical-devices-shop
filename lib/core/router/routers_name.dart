@@ -9,4 +9,5 @@ class RouteName {
   static const String devicesView = 'devicesView';
   static const String devicesDetailsView = 'devicesDetailsView';
   static const String cartView = 'cartView';
+  static const String contactUsView = 'contactUsView';
 }

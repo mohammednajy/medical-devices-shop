@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:medical_devices_app/core/router/router.dart';
 import 'package:medical_devices_app/core/router/routers_name.dart';
 import 'package:medical_devices_app/core/services/remote_services/base_model.dart';
-import 'package:medical_devices_app/core/services/remote_services/firebase_init.dart';
 import 'package:medical_devices_app/core/utils/extentions.dart';
 import 'package:medical_devices_app/core/widgets/appbar_custom.dart';
 import 'package:medical_devices_app/core/widgets/loading_widget.dart';

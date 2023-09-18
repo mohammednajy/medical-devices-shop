@@ -28,6 +28,16 @@ class _ActiveOrderViewState extends State<ActiveOrderView> {
     return Consumer<OrderController>(
         builder: (context, orderController, child) {
       if (orderController.activeOrder.status == Status.COMPLETED) {
+        if (orderController.activeOrder.data!.isEmpty) {
+          return Center(
+            child: Text(
+              'لا يوجد طلبات قيد التنفيذ',
+              style: context.h1.copyWith(
+                color: ColorManager.blue,
+              ),
+            ),
+          );
+        }
         return ListView.separated(
           separatorBuilder: (context, index) => const SizedBox(
             height: 10,

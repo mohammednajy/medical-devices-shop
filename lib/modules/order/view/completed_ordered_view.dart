@@ -14,18 +14,29 @@ class CompletedOrderedView extends StatefulWidget {
 }
 
 class _CompletedOrderedViewState extends State<CompletedOrderedView> {
-    @override
+  @override
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       context.read<OrderController>().getCompletedOrder();
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Consumer<OrderController>(
         builder: (context, orderController, child) {
       if (orderController.completedOrder.status == Status.COMPLETED) {
+        if (orderController.completedOrder.data!.isEmpty) {
+          return Center(
+            child: Text(
+              'لا يوجد طلبات مستلمة',
+              style: context.h1.copyWith(
+                color: ColorManager.blue,
+              ),
+            ),
+          );
+        }
         return ListView.separated(
           separatorBuilder: (context, index) => const SizedBox(
             height: 10,
@@ -49,7 +60,8 @@ class _CompletedOrderedViewState extends State<CompletedOrderedView> {
                       borderRadius: BorderRadius.circular(10),
                       color: Colors.grey.shade300),
                   child: Image.network(
-                    orderController.completedOrder.data![index].deviceModel.image,
+                    orderController
+                        .completedOrder.data![index].deviceModel.image,
                     fit: BoxFit.fill,
                   ),
                 ),
@@ -57,7 +69,8 @@ class _CompletedOrderedViewState extends State<CompletedOrderedView> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      orderController.completedOrder.data![index].deviceModel.name,
+                      orderController
+                          .completedOrder.data![index].deviceModel.name,
                       style: context.h1.copyWith(fontSize: 17),
                     ),
                     Text(

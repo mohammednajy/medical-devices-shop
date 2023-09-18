@@ -133,6 +133,7 @@ class _CartViewState extends State<CartView> {
                         onPressed: () {
                           showModalBottomSheet(
                             context: context,
+                            isScrollControlled: true,
                             builder: (context) => Padding(
                               padding: EdgeInsets.only(
                                   left: 26,
@@ -140,69 +141,65 @@ class _CartViewState extends State<CartView> {
                                   top: 20,
                                   bottom:
                                       MediaQuery.of(context).viewInsets.bottom),
-                              child: SingleChildScrollView(
-                                child: Form(
-                                  key: formKey,
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        'تفاصيل الطلب',
-                                        style: context.h1.copyWith(
-                                            color: ColorManager.blue,
-                                            fontSize: 20),
+                              child: Form(
+                                key: formKey,
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'تفاصيل الطلب',
+                                      style: context.h1.copyWith(
+                                          color: ColorManager.blue,
+                                          fontSize: 20),
+                                    ),
+                                    const SizedBox(
+                                      height: 20,
+                                    ),
+                                    TextFieldWidget(
+                                      controller: mobileController,
+                                      hintText: 'رقم الجوال',
+                                      prefixIcon: Icons.phone_iphone_outlined,
+                                      validator: (value) => value!.isValidPhone,
+                                    ),
+                                    const SizedBox(
+                                      height: 15,
+                                    ),
+                                    TextFormField(
+                                      minLines: 2,
+                                      maxLines: 2,
+                                      controller: addressController,
+                                      validator: (value) =>
+                                          value!.isNotEmptyField,
+                                      decoration: const InputDecoration(
+                                        label: Text('تفاصيل العنوان'),
+                                        hintText:
+                                            'ادخل تفاصيل العنوان كاملا ، المدينة ، الحي ، الشارع ....',
                                       ),
-                                      const SizedBox(
-                                        height: 20,
-                                      ),
-                                      TextFieldWidget(
-                                        controller: mobileController,
-                                        hintText: 'رقم الجوال',
-                                        prefixIcon: Icons.phone_iphone_outlined,
-                                        validator: (value) =>
-                                            value!.isValidPhone,
-                                      ),
-                                      const SizedBox(
-                                        height: 15,
-                                      ),
-                                      TextFormField(
-                                        minLines: 2,
-                                        maxLines: 2,
-                                        controller: addressController,
-                                        validator: (value) =>
-                                            value!.isNotEmptyField,
-                                        decoration: const InputDecoration(
-                                          label: Text('تفاصيل العنوان'),
-                                          hintText:
-                                              'ادخل تفاصيل العنوان كاملا ، المدينة ، الحي ، الشارع ....',
-                                        ),
-                                      ),
-                                      const SizedBox(
-                                        height: 15,
-                                      ),
-                                      ElevatedButton(
-                                          onPressed: () {
-                                            if (formKey.currentState!
-                                                .validate()) {
-                                              context
-                                                  .read<OrderController>()
-                                                  .completeOrder(
-                                                      address: addressController
-                                                          .text,
-                                                      mobile: mobileController
-                                                          .text);
-                                            }
-                                          },
-                                          child: const Text(
-                                            'تاكيد',
-                                          )),
-                                      const SizedBox(
-                                        height: 20,
-                                      )
-                                    ],
-                                  ),
+                                    ),
+                                    const SizedBox(
+                                      height: 15,
+                                    ),
+                                    ElevatedButton(
+                                        onPressed: () {
+                                          if (formKey.currentState!
+                                              .validate()) {
+                                            context
+                                                .read<OrderController>()
+                                                .completeOrder(
+                                                    address:
+                                                        addressController.text,
+                                                    mobile:
+                                                        mobileController.text);
+                                          }
+                                        },
+                                        child: const Text(
+                                          'تاكيد',
+                                        )),
+                                    const SizedBox(
+                                      height: 20,
+                                    )
+                                  ],
                                 ),
                               ),
                             ),

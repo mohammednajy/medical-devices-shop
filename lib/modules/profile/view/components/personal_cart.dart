@@ -43,11 +43,13 @@ class _PersonalCardInfoState extends State<PersonalCardInfo> {
             children: [
               Text(
                 SharedPrefController().getUser().name,
-                style: context.h1,
+                style: context.h1.copyWith(fontSize: 20),
               ),
               Text(
                 SharedPrefController().getUser().email,
-                style: context.b1,
+                style: context.b1.copyWith(
+                  fontSize: 13,
+                ),
               ),
             ],
           )
