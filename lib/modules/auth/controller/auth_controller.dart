@@ -43,9 +43,10 @@ class AuthController extends ChangeNotifier {
         password: password,
       );
       if (credential.user != null) {
-        NavigationManager.goToAndRemove(RouteName.mainAppView);
+        // this is for update the user password inside firestore database after change it form forget password screen
+        await updateUser(email, password);
         SharedPrefController().isLoggedIn(value: true);
-        saveUser(email: email, password: password);
+        NavigationManager.goToAndRemove(RouteName.mainAppView);
         showSnackBarCustom(
           text: 'logged in successfully',
           backgroundColor: Colors.green,
@@ -63,6 +64,26 @@ class AuthController extends ChangeNotifier {
   createUser(UserModel user) {
     try {
       getIt<FirebaseService>().firestore.collection('users').add(user.toJson());
+    } on Exception catch (e) {
+      debugPrint(e.toString());
+    }
+  }
+
+  updateUser(String email, String password) async {
+    try {
+      final id = await getIt<FirebaseService>()
+          .firestore
+          .collection('users')
+          .where('email', isEqualTo: email)
+          .get()
+          .then((value) => value.docs.first.id);
+
+      await getIt<FirebaseService>()
+          .firestore
+          .collection('users')
+          .doc(id)
+          .update({'password': password}).then(
+              (value) => saveUser(email: email, password: password));
     } on Exception catch (e) {
       debugPrint(e.toString());
     }
@@ -86,8 +107,8 @@ class AuthController extends ChangeNotifier {
     }
   }
 
-  saveUser({required String email, required String password}) {
-    getIt<FirebaseService>()
+  saveUser({required String email, required String password}) async {
+    await getIt<FirebaseService>()
         .firestore
         .collection('users')
         .where('email', isEqualTo: email)
