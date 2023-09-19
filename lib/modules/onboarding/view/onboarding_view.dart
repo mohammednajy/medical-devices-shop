@@ -70,7 +70,7 @@ class _OnBoardingScreenState extends State<OnBoardingView> {
                   style: context.h1,
                 ),
                 SizedBox(
-                  height: 94,
+                  height: 120,
                   child: Text(
                     onboardingContent[onboardingProvider.selectedIndex]
                         .description,

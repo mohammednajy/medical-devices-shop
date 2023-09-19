@@ -23,7 +23,7 @@ class ProfileController extends ChangeNotifier {
   }
 
   whatsappSupport() async {
-    const url = "whatsapp://send?phone=+972592663280";
+    const url = "whatsapp://send?phone=+972593633418";
     if (await canLaunchUrl(Uri.parse(url))) {
       await launchUrl(Uri.parse(url));
     } else {
@@ -34,7 +34,7 @@ class ProfileController extends ChangeNotifier {
   emailSupport() async {
     final Uri emailLaunchUri = Uri(
       scheme: 'mailto',
-      path: 'smith@example.com',
+      path: 'abumaraq.comp@gmail.com',
       queryParameters: <String, String>{
         'subject': 'Support',
       },
@@ -51,7 +51,7 @@ class ProfileController extends ChangeNotifier {
     try {
       Uri email = Uri(
         scheme: 'tel',
-        path: "+972592663280",
+        path: "+972593633418",
       );
       await launchUrl(email);
     } catch (e) {
