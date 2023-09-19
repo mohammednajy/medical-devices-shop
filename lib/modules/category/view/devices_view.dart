@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:medical_devices_app/core/router/router.dart';
-import 'package:medical_devices_app/core/router/routers_name.dart';
-import 'package:medical_devices_app/core/services/remote_services/base_model.dart';
-import 'package:medical_devices_app/core/utils/color_manager.dart';
-import 'package:medical_devices_app/core/utils/extentions.dart';
-import 'package:medical_devices_app/core/widgets/loading_widget.dart';
-import 'package:medical_devices_app/modules/category/controller/category_controller.dart';
-import 'package:medical_devices_app/modules/category/model/category_model.dart';
+import '../../../core/router/router.dart';
+import '../../../core/router/routers_name.dart';
+import '../../../core/services/remote_services/base_model.dart';
+import '../../../core/utils/color_manager.dart';
+import '../../../core/utils/extentions.dart';
+import '../../../core/widgets/loading_widget.dart';
+import '../controller/category_controller.dart';
+import '../model/category_model.dart';
 import 'package:provider/provider.dart';
 
 import '../../../core/widgets/appbar_custom.dart';

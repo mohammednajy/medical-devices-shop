@@ -1,11 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:medical_devices_app/core/router/router.dart';
-import 'package:medical_devices_app/core/router/routers_name.dart';
-import 'package:medical_devices_app/core/services/local_services/shared_perf.dart';
-import 'package:medical_devices_app/core/widgets/loading_widget.dart';
-import 'package:medical_devices_app/core/widgets/show_snackbar.dart';
-import 'package:medical_devices_app/modules/auth/models/user_model.dart';
+import '../../../core/router/router.dart';
+import '../../../core/router/routers_name.dart';
+import '../../../core/services/local_services/shared_perf.dart';
+import '../../../core/widgets/loading_widget.dart';
+import '../../../core/widgets/show_snackbar.dart';
+import '../models/user_model.dart';
 
 import '../../../core/services/remote_services/firebase_init.dart';
 import '../../../core/utils/auth_exceptions.dart';

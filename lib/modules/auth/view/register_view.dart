@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:medical_devices_app/core/utils/extentions.dart';
-import 'package:medical_devices_app/core/utils/validation.dart';
-import 'package:medical_devices_app/core/widgets/secoundery_button_widget.dart';
-import 'package:medical_devices_app/modules/auth/controller/auth_controller.dart';
-import 'package:medical_devices_app/modules/auth/models/user_model.dart';
-import 'package:medical_devices_app/modules/auth/view/components/header_widget.dart';
+import '../../../core/utils/extentions.dart';
+import '../../../core/utils/validation.dart';
+import '../../../core/widgets/secoundery_button_widget.dart';
+import '../controller/auth_controller.dart';
+import '../models/user_model.dart';
+import 'components/header_widget.dart';
 import 'package:provider/provider.dart';
 
 import '../../../core/router/router.dart';
@@ -53,6 +53,7 @@ class _RegisterViewState extends State<RegisterView> {
               hintText: 'اسم المستخدم',
               prefixIcon: Icons.person_outline,
               validator: (value) => value!.isValidName,
+              keyboardType: TextInputType.name,
             ),
             const SizedBox(
               height: 15,
@@ -62,6 +63,8 @@ class _RegisterViewState extends State<RegisterView> {
               hintText: 'البريد الالكتروني',
               prefixIcon: Icons.email_outlined,
               validator: (value) => value!.isValidEmail,
+              keyboardType: TextInputType.emailAddress,
+
             ),
             const SizedBox(
               height: 15,
@@ -71,6 +74,8 @@ class _RegisterViewState extends State<RegisterView> {
               hintText: 'رقم الجوال',
               prefixIcon: Icons.phone_iphone_outlined,
               validator: (value) => value!.isValidPhone,
+              keyboardType: TextInputType.number,
+
             ),
             const SizedBox(
               height: 15,
@@ -81,6 +86,8 @@ class _RegisterViewState extends State<RegisterView> {
               isPassword: true,
               prefixIcon: Icons.lock_outline,
               validator: (value) => value!.isValidPassword,
+              keyboardType: TextInputType.text,
+
             ),
             const SizedBox(
               height: 50,

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:medical_devices_app/core/utils/extentions.dart';
+import '../../../core/utils/extentions.dart';
 import 'package:provider/provider.dart';
 import 'package:skeletons/skeletons.dart';
 

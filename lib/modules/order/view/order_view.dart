@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:medical_devices_app/core/utils/color_manager.dart';
-import 'package:medical_devices_app/core/widgets/appbar_custom.dart';
-import 'package:medical_devices_app/modules/order/view/active_order_view.dart';
-import 'package:medical_devices_app/modules/order/view/completed_ordered_view.dart';
+import '../../../core/utils/color_manager.dart';
+import '../../../core/widgets/appbar_custom.dart';
+import 'active_order_view.dart';
+import 'completed_ordered_view.dart';
 
 class OrdersScreen extends StatelessWidget {
   const OrdersScreen({super.key});

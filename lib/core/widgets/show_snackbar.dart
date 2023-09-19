@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:medical_devices_app/core/router/router.dart';
+import '../router/router.dart';
 
 showSnackBarCustom({
   Color? backgroundColor,

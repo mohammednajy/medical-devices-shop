@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:medical_devices_app/core/router/router.dart';
-import 'package:medical_devices_app/core/router/routers_name.dart';
-import 'package:medical_devices_app/core/widgets/appbar_custom.dart';
-import 'package:medical_devices_app/core/widgets/dialog_custome.dart';
-import 'package:medical_devices_app/modules/profile/controller/profile_controller.dart';
-import 'package:medical_devices_app/modules/profile/view/components/personal_cart.dart';
-import 'package:medical_devices_app/modules/profile/view/components/profile_listTile.dart';
+import '../../../core/router/router.dart';
+import '../../../core/router/routers_name.dart';
+import '../../../core/widgets/appbar_custom.dart';
+import '../../../core/widgets/dialog_custome.dart';
+import '../controller/profile_controller.dart';
+import 'components/personal_cart.dart';
+import 'components/profile_listTile.dart';
 import 'package:provider/provider.dart';
 
 class ProfileView extends StatelessWidget {

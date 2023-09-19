@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:medical_devices_app/core/services/local_services/shared_perf.dart';
-import 'package:medical_devices_app/core/utils/extentions.dart';
+import '../../../../core/services/local_services/shared_perf.dart';
+import '../../../../core/utils/extentions.dart';
 
-import '../../../../core/services/remote_services/firebase_init.dart';
 import '../../../../core/utils/color_manager.dart';
 
 class PersonalCardInfo extends StatefulWidget {

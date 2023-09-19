@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:medical_devices_app/core/router/router.dart';
-import 'package:medical_devices_app/core/router/routers_name.dart';
-import 'package:medical_devices_app/core/utils/extentions.dart';
+import '../../../core/router/router.dart';
+import '../../../core/router/routers_name.dart';
+import '../../../core/utils/extentions.dart';
 import 'package:provider/provider.dart';
 import 'package:skeletons/skeletons.dart';
 

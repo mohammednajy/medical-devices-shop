@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:medical_devices_app/core/services/remote_services/base_model.dart';
-import 'package:medical_devices_app/core/services/remote_services/firebase_init.dart';
-import 'package:medical_devices_app/modules/profile/model/about_app_model.dart';
+import '../../../core/services/remote_services/base_model.dart';
+import '../../../core/services/remote_services/firebase_init.dart';
+import '../model/about_app_model.dart';
 
 import '../../../core/router/router.dart';
 import '../../../core/router/routers_name.dart';
@@ -24,7 +24,6 @@ class ProfileController extends ChangeNotifier {
 
   whatsappSupport() async {
     const url = "whatsapp://send?phone=+972592663280";
-
     if (await canLaunchUrl(Uri.parse(url))) {
       await launchUrl(Uri.parse(url));
     } else {

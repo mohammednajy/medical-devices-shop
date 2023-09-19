@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:medical_devices_app/core/router/router.dart';
-import 'package:medical_devices_app/core/services/remote_services/base_model.dart';
-import 'package:medical_devices_app/core/services/remote_services/firebase_init.dart';
-import 'package:medical_devices_app/core/widgets/show_snackbar.dart';
-import 'package:medical_devices_app/modules/order/model/cart_model.dart';
-import 'package:medical_devices_app/modules/order/model/order_model.dart';
+import '../../../core/router/router.dart';
+import '../../../core/services/remote_services/base_model.dart';
+import '../../../core/services/remote_services/firebase_init.dart';
+import '../../../core/widgets/show_snackbar.dart';
+import '../model/cart_model.dart';
+import '../model/order_model.dart';
 
 import '../../../core/services/local_services/shared_perf.dart';
 
@@ -62,7 +62,7 @@ class OrderController extends ChangeNotifier {
       );
       NavigationManager.mayPop();
     } on Exception catch (e) {
-      print(e);
+      debugPrint(e.toString());
     }
   }
 

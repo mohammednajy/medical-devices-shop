@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:medical_devices_app/modules/home/model/device_model.dart';
+import '../../home/model/device_model.dart';
 
 class CartModel {
   final String userId;

@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:medical_devices_app/core/router/router.dart';
-import 'package:medical_devices_app/core/services/remote_services/base_model.dart';
-import 'package:medical_devices_app/core/services/remote_services/firebase_init.dart';
-import 'package:medical_devices_app/core/utils/color_manager.dart';
-import 'package:medical_devices_app/core/utils/extentions.dart';
-import 'package:medical_devices_app/core/utils/validation.dart';
-import 'package:medical_devices_app/core/widgets/appbar_custom.dart';
-import 'package:medical_devices_app/core/widgets/loading_widget.dart';
-import 'package:medical_devices_app/core/widgets/text_field_widget.dart';
-import 'package:medical_devices_app/modules/order/controller/order_controller.dart';
+import '../../../core/services/remote_services/base_model.dart';
+import '../../../core/utils/color_manager.dart';
+import '../../../core/utils/extentions.dart';
+import '../../../core/utils/validation.dart';
+import '../../../core/widgets/appbar_custom.dart';
+import '../../../core/widgets/loading_widget.dart';
+import '../../../core/widgets/text_field_widget.dart';
+import '../controller/order_controller.dart';
 import 'package:provider/provider.dart';
 
 class CartView extends StatefulWidget {
@@ -161,6 +159,7 @@ class _CartViewState extends State<CartView> {
                                       hintText: 'رقم الجوال',
                                       prefixIcon: Icons.phone_iphone_outlined,
                                       validator: (value) => value!.isValidPhone,
+                                      keyboardType: TextInputType.phone,
                                     ),
                                     const SizedBox(
                                       height: 15,

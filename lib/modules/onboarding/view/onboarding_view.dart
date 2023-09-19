@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:medical_devices_app/core/router/router.dart';
-import 'package:medical_devices_app/core/router/routers_name.dart';
-import 'package:medical_devices_app/core/services/local_services/shared_perf.dart';
-import 'package:medical_devices_app/core/utils/constant.dart';
-import 'package:medical_devices_app/core/utils/extentions.dart';
-import 'package:medical_devices_app/modules/onboarding/controller/onboarding_controller.dart';
-import 'package:medical_devices_app/modules/onboarding/model/onboarding_model.dart';
+import '../../../core/router/router.dart';
+import '../../../core/router/routers_name.dart';
+import '../../../core/services/local_services/shared_perf.dart';
+import '../../../core/utils/constant.dart';
+import '../../../core/utils/extentions.dart';
+import '../controller/onboarding_controller.dart';
+import '../model/onboarding_model.dart';
 import 'package:provider/provider.dart';
 
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -22,7 +22,6 @@ class _OnBoardingScreenState extends State<OnBoardingView> {
 
   @override
   Widget build(BuildContext context) {
-    print(height / 8);
     return Scaffold(
         body: Consumer<OnBoardingController>(
       builder: (context, onboardingProvider, child) => ListView(
@@ -71,7 +70,7 @@ class _OnBoardingScreenState extends State<OnBoardingView> {
                   style: context.h1,
                 ),
                 SizedBox(
-                  height: height / 10,
+                  height: 94,
                   child: Text(
                     onboardingContent[onboardingProvider.selectedIndex]
                         .description,

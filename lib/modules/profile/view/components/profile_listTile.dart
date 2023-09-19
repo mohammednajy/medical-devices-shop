@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
-import 'package:medical_devices_app/core/utils/color_manager.dart';
-import 'package:medical_devices_app/core/utils/extentions.dart';
+import '../../../../core/utils/color_manager.dart';
+import '../../../../core/utils/extentions.dart';
 
 class ProfileCustomListTile extends StatelessWidget {
   const ProfileCustomListTile({

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:medical_devices_app/core/utils/extentions.dart';
-import 'package:medical_devices_app/core/utils/validation.dart';
-import 'package:medical_devices_app/core/widgets/text_field_widget.dart';
-import 'package:medical_devices_app/modules/auth/controller/auth_controller.dart';
-import 'package:medical_devices_app/modules/auth/view/components/header_widget.dart';
+import '../../../core/utils/extentions.dart';
+import '../../../core/utils/validation.dart';
+import '../../../core/widgets/text_field_widget.dart';
+import '../controller/auth_controller.dart';
+import 'components/header_widget.dart';
 import 'package:provider/provider.dart';
 
 import '../../../core/router/router.dart';
@@ -51,6 +51,7 @@ class _LoginViewState extends State<LoginView> {
                 hintText: 'البريد الالكتروني',
                 prefixIcon: Icons.email_outlined,
                 validator: (value) => value!.isValidEmail,
+                keyboardType: TextInputType.emailAddress,
               ),
               const SizedBox(
                 height: 15,
@@ -61,6 +62,7 @@ class _LoginViewState extends State<LoginView> {
                 hintText: 'كلمة المرور',
                 prefixIcon: Icons.lock_outline,
                 validator: (value) => value!.isValidPassword,
+                keyboardType: TextInputType.text,
               ),
               TextButton(
                   onPressed: () {

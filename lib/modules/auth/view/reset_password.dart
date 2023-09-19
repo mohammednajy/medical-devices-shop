@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:medical_devices_app/core/router/router.dart';
-import 'package:medical_devices_app/core/router/routers_name.dart';
-import 'package:medical_devices_app/core/utils/color_manager.dart';
-import 'package:medical_devices_app/core/utils/extentions.dart';
-import 'package:medical_devices_app/core/utils/validation.dart';
-import 'package:medical_devices_app/core/widgets/text_field_widget.dart';
-import 'package:medical_devices_app/modules/auth/controller/auth_controller.dart';
+import '../../../core/utils/color_manager.dart';
+import '../../../core/utils/extentions.dart';
+import '../../../core/utils/validation.dart';
+import '../../../core/widgets/text_field_widget.dart';
+import '../controller/auth_controller.dart';
 import 'package:provider/provider.dart';
 
 import '../../../core/utils/asset_path_manager.dart';
@@ -72,6 +70,8 @@ class _LoginViewState extends State<ResetPasswordView> {
             hintText: 'البريد الالكتروني',
             prefixIcon: Icons.email_outlined,
             validator: (value) => value!.isValidEmail,
+              keyboardType: TextInputType.emailAddress,
+
           ),
           const SizedBox(
             height: 50,

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:medical_devices_app/core/router/router.dart';
-import 'package:medical_devices_app/core/router/routers_name.dart';
-import 'package:medical_devices_app/core/services/remote_services/base_model.dart';
-import 'package:medical_devices_app/core/utils/color_manager.dart';
-import 'package:medical_devices_app/core/utils/extentions.dart';
-import 'package:medical_devices_app/modules/order/controller/order_controller.dart';
+import '../router/router.dart';
+import '../router/routers_name.dart';
+import '../services/remote_services/base_model.dart';
+import '../utils/color_manager.dart';
+import '../utils/extentions.dart';
+import '../../modules/order/controller/order_controller.dart';
 import 'package:provider/provider.dart';
 
 class AppBarCustom extends StatelessWidget implements PreferredSizeWidget {

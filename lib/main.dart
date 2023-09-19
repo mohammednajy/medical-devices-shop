@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/services.dart';
-import 'package:medical_devices_app/core/router/router.dart';
-import 'package:medical_devices_app/core/router/routers_name.dart';
-import 'package:medical_devices_app/core/router/routes.dart';
-import 'package:medical_devices_app/core/services/local_services/shared_perf.dart';
-import 'package:medical_devices_app/core/utils/theme_manager.dart';
-import 'package:medical_devices_app/firebase_options.dart';
+import 'core/router/router.dart';
+import 'core/router/routers_name.dart';
+import 'core/router/routes.dart';
+import 'core/services/local_services/shared_perf.dart';
+import 'core/utils/theme_manager.dart';
+import 'firebase_options.dart';
 // ignore: depend_on_referenced_packages
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:medical_devices_app/modules/category/controller/category_controller.dart';

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:medical_devices_app/core/router/router.dart';
-import 'package:medical_devices_app/core/router/routers_name.dart';
-import 'package:medical_devices_app/core/utils/asset_path_manager.dart';
-import 'package:medical_devices_app/core/utils/color_manager.dart';
-import 'package:medical_devices_app/core/utils/constant.dart';
-import 'package:medical_devices_app/core/utils/extentions.dart';
+import '../../../core/router/router.dart';
+import '../../../core/router/routers_name.dart';
+import '../../../core/utils/asset_path_manager.dart';
+import '../../../core/utils/color_manager.dart';
+import '../../../core/utils/constant.dart';
+import '../../../core/utils/extentions.dart';
 
 class AuthView extends StatelessWidget {
   const AuthView({super.key});

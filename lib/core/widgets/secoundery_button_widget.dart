@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:medical_devices_app/core/utils/color_manager.dart';
+import '../utils/color_manager.dart';
 
 class SecondaryButtonWidget extends StatelessWidget {
   const SecondaryButtonWidget({

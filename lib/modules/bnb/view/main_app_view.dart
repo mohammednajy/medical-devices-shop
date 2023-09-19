@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:medical_devices_app/core/utils/color_manager.dart';
-import 'package:medical_devices_app/modules/bnb/controller/bnb_controller.dart';
-import 'package:medical_devices_app/modules/bnb/model/bnb_model.dart';
-import 'package:medical_devices_app/modules/order/view/order_view.dart';
+import '../../../core/utils/color_manager.dart';
+import '../controller/bnb_controller.dart';
+import '../model/bnb_model.dart';
+import '../../order/view/order_view.dart';
 import 'package:provider/provider.dart';
 
 import '../../category/view/category_view.dart';

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:medical_devices_app/core/services/remote_services/base_model.dart';
+import '../../../core/services/remote_services/base_model.dart';
 
-import 'package:medical_devices_app/core/utils/extentions.dart';
-import 'package:medical_devices_app/core/widgets/appbar_custom.dart';
-import 'package:medical_devices_app/core/widgets/loading_widget.dart';
-import 'package:medical_devices_app/modules/profile/controller/profile_controller.dart';
+import '../../../core/utils/extentions.dart';
+import '../../../core/widgets/appbar_custom.dart';
+import '../../../core/widgets/loading_widget.dart';
+import '../controller/profile_controller.dart';
 import 'package:provider/provider.dart';
 
 class PrivacyPolicesView extends StatefulWidget {

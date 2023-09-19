@@ -7,6 +7,7 @@ class TextFieldWidget extends StatefulWidget {
       required this.prefixIcon,
       this.validator,
       this.controller,
+      this.keyboardType,
       this.keyField,
       this.isPassword = false});
   final String hintText;
@@ -15,6 +16,7 @@ class TextFieldWidget extends StatefulWidget {
   final Key? keyField;
   final TextEditingController? controller;
   final bool isPassword;
+  final TextInputType? keyboardType;
 
   @override
   State<TextFieldWidget> createState() => _TextFieldWidgetState();
@@ -26,6 +28,7 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
   Widget build(BuildContext context) {
     return TextFormField(
       key: widget.keyField,
+      keyboardType: widget.keyboardType,
       controller: widget.controller,
       validator: widget.validator,
       obscureText: widget.isPassword ? isVisible : false,

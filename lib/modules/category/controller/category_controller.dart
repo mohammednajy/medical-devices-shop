@@ -2,14 +2,14 @@ import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:medical_devices_app/core/router/router.dart';
-import 'package:medical_devices_app/core/services/local_services/shared_perf.dart';
-import 'package:medical_devices_app/core/services/remote_services/base_model.dart';
-import 'package:medical_devices_app/core/services/remote_services/firebase_init.dart';
-import 'package:medical_devices_app/core/widgets/loading_widget.dart';
-import 'package:medical_devices_app/core/widgets/show_snackbar.dart';
-import 'package:medical_devices_app/modules/category/model/category_model.dart';
-import 'package:medical_devices_app/modules/home/model/device_model.dart';
+import '../../../core/router/router.dart';
+import '../../../core/services/local_services/shared_perf.dart';
+import '../../../core/services/remote_services/base_model.dart';
+import '../../../core/services/remote_services/firebase_init.dart';
+import '../../../core/widgets/loading_widget.dart';
+import '../../../core/widgets/show_snackbar.dart';
+import '../model/category_model.dart';
+import '../../home/model/device_model.dart';
 
 class CategoryController extends ChangeNotifier {
   FirebaseResponse<List<CategoryModel>> categories = FirebaseResponse.init();

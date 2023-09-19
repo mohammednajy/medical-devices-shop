@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:medical_devices_app/core/services/remote_services/base_model.dart';
-import 'package:medical_devices_app/core/utils/color_manager.dart';
-import 'package:medical_devices_app/core/utils/extentions.dart';
-import 'package:medical_devices_app/core/widgets/loading_widget.dart';
-import 'package:medical_devices_app/modules/order/controller/order_controller.dart';
+import '../../../core/services/remote_services/base_model.dart';
+import '../../../core/utils/color_manager.dart';
+import '../../../core/utils/extentions.dart';
+import '../../../core/widgets/loading_widget.dart';
+import '../controller/order_controller.dart';
 import 'package:provider/provider.dart';
 
 class CompletedOrderedView extends StatefulWidget {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:medical_devices_app/core/utils/color_manager.dart';
+import 'color_manager.dart';
 
 class ThemeManager {
   static final lightTheme = ThemeData(

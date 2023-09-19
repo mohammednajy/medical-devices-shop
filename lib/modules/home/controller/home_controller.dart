@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/widgets.dart';
-import 'package:medical_devices_app/modules/home/model/device_model.dart';
+import '../model/device_model.dart';
 
 import '../../../core/services/remote_services/base_model.dart';
 import '../../../core/services/remote_services/firebase_init.dart';

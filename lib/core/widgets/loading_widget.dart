@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:medical_devices_app/core/router/router.dart';
-import 'package:medical_devices_app/core/utils/color_manager.dart';
-import 'package:medical_devices_app/core/utils/extentions.dart';
+import '../router/router.dart';
+import '../utils/color_manager.dart';
+import '../utils/extentions.dart';
 
 loadingWithText({
   String? text,
