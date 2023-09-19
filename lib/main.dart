@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/services.dart';
 import 'package:medical_devices_app/core/router/router.dart';
 import 'package:medical_devices_app/core/router/routers_name.dart';
 import 'package:medical_devices_app/core/router/routes.dart';
@@ -25,6 +26,10 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   setUp();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitDown,
+    DeviceOrientation.portraitUp,
+  ]);
   runApp(
     MultiProvider(
       providers: [

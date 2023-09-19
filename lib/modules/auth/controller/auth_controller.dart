@@ -8,6 +8,7 @@ import 'package:medical_devices_app/core/widgets/show_snackbar.dart';
 import 'package:medical_devices_app/modules/auth/models/user_model.dart';
 
 import '../../../core/services/remote_services/firebase_init.dart';
+import '../../../core/utils/auth_exceptions.dart';
 
 class AuthController extends ChangeNotifier {
   register(UserModel user) async {
@@ -22,6 +23,9 @@ class AuthController extends ChangeNotifier {
         createUser(user);
         NavigationManager.goToAndRemove(RouteName.login);
       }
+    } on FirebaseAuthException catch (e) {
+      NavigationManager.pop();
+      showSnackBarCustom(text: AuthException.handleRegisterException(e));
     } on FirebaseException catch (e) {
       NavigationManager.pop();
       showSnackBarCustom(text: e.code);
@@ -48,10 +52,13 @@ class AuthController extends ChangeNotifier {
         SharedPrefController().isLoggedIn(value: true);
         NavigationManager.goToAndRemove(RouteName.mainAppView);
         showSnackBarCustom(
-          text: 'logged in successfully',
+          text: 'تم تسجيل الدخول بنجاح',
           backgroundColor: Colors.green,
         );
       }
+    } on FirebaseAuthException catch (e) {
+      NavigationManager.pop();
+      showSnackBarCustom(text: AuthException.handleLoginException(e));
     } on FirebaseException catch (e) {
       NavigationManager.pop();
       showSnackBarCustom(text: e.code);
@@ -95,10 +102,13 @@ class AuthController extends ChangeNotifier {
       await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
       NavigationManager.pushNamed(RouteName.checkEmail);
       showSnackBarCustom(
-        text: 'send successfully',
+        text: 'تم ارسال الرابط بنجاح',
         backgroundColor: Colors.green,
       );
     } on FirebaseAuthException catch (e) {
+      NavigationManager.pop();
+      showSnackBarCustom(text: AuthException.handleResetPasswordException(e));
+    } on FirebaseException catch (e) {
       NavigationManager.pop();
       showSnackBarCustom(text: e.code);
     } catch (e) {
